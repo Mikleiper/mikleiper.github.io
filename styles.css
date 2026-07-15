@@ -17,6 +17,7 @@
 /* === BASE === */
 body {
   font-family:
+    "Montserrat",
     system-ui,
     -apple-system,
     "Segoe UI",
@@ -31,27 +32,46 @@ body {
 header {
   position: sticky;
   top: 0;
-  background-color: var(--superficie);
+  background-color: var(--fondo);
   padding: 1rem 2rem;
-  border-bottom: 1px solid #334155;
 }
 
 nav {
   display: flex;
+  justify-content: flex-end;
   gap: 1.5rem;
   max-width: 900px;
   margin: 0 auto;
 }
 
 nav a {
+  position: relative;
   color: var(--texto-suave);
   text-decoration: none;
   font-weight: 500;
+  padding-bottom: 0.4rem;
   transition: color 0.2s;
 }
 
 nav a:hover {
   color: var(--acento);
+}
+
+/* Sección activa: color de acento + puntito debajo */
+nav a.activo {
+  color: var(--acento);
+}
+
+nav a.activo::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background-color: var(--acento);
 }
 
 /* === SECCIONES === */
@@ -64,6 +84,30 @@ main {
 section {
   padding: 3rem 0;
   border-bottom: 1px solid #334155;
+}
+
+#inicio p {
+  max-width: 75ch;
+  text-align: justify;
+  line-height: 1.7;
+}
+
+.hero-title {
+  font-weight: 800;
+  line-height: 0.95;
+  letter-spacing: -0.02em;
+  margin-bottom: 1.5rem;
+  font-size: clamp(3.5rem, 7vw, 6rem);
+  opacity: 1;
+  transform: none;
+}
+
+.hero-title span {
+  display: block;
+}
+
+.text-accent {
+  color: var(--acento); /* Reutiliza tu variable de acento anterior */
 }
 
 h1 {
@@ -96,6 +140,40 @@ a {
   font-weight: 600;
 }
 
+/* === TARJETAS DE PROYECTO === */
+.tarjeta {
+  background-color: var(--superficie);
+  padding: 1.5rem;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+  border: 1px solid #334155;
+}
+
+.tarjeta h3 {
+  font-size: 1.3rem;
+  margin-bottom: 0.5rem;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 1rem 0;
+}
+
+.tag {
+  background-color: #334155;
+  color: var(--acento);
+  padding: 0.25rem 0.6rem;
+  border-radius: 4px;
+  font-size: 0.8rem;
+}
+
+.enlaces a {
+  margin-right: 1rem;
+  font-weight: 600;
+}
+
 /* === SKILLS === */
 #skills ul {
   list-style: none;
@@ -119,6 +197,26 @@ footer {
   font-size: 0.9rem;
 }
 
+/* === ICONOS SOCIALES === */
+.social-links {
+  display: flex;
+  gap: 1.2rem;
+  margin-top: 1.5rem;
+}
+
+.social-links a {
+  color: var(--texto-suave);
+  display: inline-flex;
+  transition:
+    color 0.2s,
+    transform 0.2s;
+}
+
+.social-links a:hover {
+  color: var(--acento);
+  transform: translateY(-3px);
+}
+
 /* === RESPONSIVE === */
 @media (max-width: 600px) {
   h1 {
@@ -131,4 +229,19 @@ footer {
   main {
     padding: 1rem;
   }
+}
+
+/* === SCROLL SNAP SUAVE === */
+html {
+  scroll-snap-type: y proximity;
+  scroll-behavior: smooth;
+}
+
+section {
+  scroll-snap-align: start;
+  scroll-margin-top: 70px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
