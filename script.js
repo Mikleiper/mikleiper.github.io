@@ -6,14 +6,14 @@ const proyectos = [
     descripcion:
       "App Android que digitaliza tarjetas de restaurante con OCR y las ubica en un mapa.",
     tecnologias: ["Kotlin", "Spring Boot", "ML Kit", "PostgreSQL"],
-    repo: "https://github.com/tuusuario/cardresto",
+    repo: "",
     demo: "",
   },
   {
     titulo: "Gestor Finanzas",
     descripcion: "Herramienta de gestión de finanzas personales para el hogar.",
     tecnologias: ["Spring Boot", "React", "PostgreSQL"],
-    repo: "https://github.com/tuusuario/gestor-finanzas",
+    repo: "",
     demo: "",
   },
   {
@@ -22,7 +22,8 @@ const proyectos = [
       "Sistema web + Android para gestión de flota y servicios de chófer. Proyecto de prácticas en el Parc Mòbil (Diputació de Barcelona).",
     tecnologias: ["React", "Node.js", "MySQL", "Kotlin"],
     repo: "",
-    demo: "",
+    ver capturas: "",
+    nota: "Código no público (proyecto de prácticas en Diputació de Barcelona)"
   },
 ];
 
