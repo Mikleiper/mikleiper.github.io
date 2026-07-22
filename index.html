@@ -32,6 +32,7 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
+    <a href="#main-content" class="skip-link">Saltar al contenido</a>
     <!-- CABECERA / NAV -->
     <header>
       <nav>
@@ -42,14 +43,20 @@
       </nav>
     </header>
 
-    <main>
+    <main id="main-content">
       <!-- INTRO -->
       <section id="inicio">
-        <img src="img/perfil.jpeg" alt="Foto de Miguel Muñoz" class="avatar" />
-        <h1 class="hero-title">
-          <span class="text-white">Miguel</span>
-          <span class="text-accent">Muñoz</span>
-        </h1>
+        <div class="hero-header">
+          <img
+            src="img/perfil.jpeg"
+            alt="Foto de Miguel Muñoz"
+            class="avatar"
+          />
+          <h1 class="hero-title">
+            <span class="text-white">Miguel</span>
+            <span class="text-accent">Muñoz</span>
+          </h1>
+        </div>
         <div class="social-links">
           <a href="mailto:mimuba55@gmail.com" aria-label="Email" title="Email">
             <svg
