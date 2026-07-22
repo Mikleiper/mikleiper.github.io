@@ -40,7 +40,7 @@ const contenedor = document.getElementById("lista-proyectos");
 function mostrarProyectos(lista) {
   contenedor.innerHTML = ""; // limpia antes de pintar
 
-  lista.forEach(function (proyecto) {
+  lista.forEach(function (proyecto, indice) {
     // Construimos las etiquetas de tecnología
     const tags = proyecto.tecnologias
       .map(function (tec) {
@@ -57,9 +57,10 @@ function mostrarProyectos(lista) {
       enlaces += `<a href="${proyecto.demo}" target="_blank">Demo</a>`;
     }
     const galeria = proyecto.imagenes
-      ? `<div class="galeria">${proyecto.imagenes
+      ? `<div class="galeria" data-proyecto-indice="${indice}">${proyecto.imagenes
           .map(
-            (img) => `<img src="${img}" alt="Captura de ${proyecto.titulo}">`,
+            (img, i) =>
+              `<img src="${img}" alt="Captura de ${proyecto.titulo}" data-imagen-indice="${i}">`,
           )
           .join("")}</div>`
       : "";
@@ -108,4 +109,65 @@ const observador = new IntersectionObserver(
 
 secciones.forEach(function (seccion) {
   observador.observe(seccion);
+});
+
+// === LIGHTBOX: ver fotos de proyecto en grande ===
+const lightbox = document.getElementById("lightbox");
+const lightboxImagen = document.querySelector(".lightbox-imagen");
+const btnCerrar = document.querySelector(".lightbox-cerrar");
+const btnAnterior = document.querySelector(".lightbox-anterior");
+const btnSiguiente = document.querySelector(".lightbox-siguiente");
+
+let imagenesActuales = [];
+let indiceActual = 0;
+
+function abrirLightbox(imagenes, indice) {
+  imagenesActuales = imagenes;
+  indiceActual = indice;
+  lightboxImagen.src = imagenesActuales[indiceActual];
+  lightbox.classList.remove("oculto");
+}
+
+function cerrarLightbox() {
+  lightbox.classList.add("oculto");
+}
+
+function mostrarSiguiente() {
+  indiceActual = (indiceActual + 1) % imagenesActuales.length;
+  lightboxImagen.src = imagenesActuales[indiceActual];
+}
+
+function mostrarAnterior() {
+  indiceActual =
+    (indiceActual - 1 + imagenesActuales.length) % imagenesActuales.length;
+  lightboxImagen.src = imagenesActuales[indiceActual];
+}
+
+// Delegación de eventos: un solo listener en el contenedor,
+// en vez de uno por cada imagen (las imágenes se crean dinámicamente
+// con innerHTML, no existen todavía al cargar la página)
+contenedor.addEventListener("click", function (evento) {
+  const galeriaClicada = evento.target.closest(".galeria");
+  if (evento.target.tagName === "IMG" && galeriaClicada) {
+    const indiceProyecto = galeriaClicada.dataset.proyectoIndice;
+    const indiceImagen = evento.target.dataset.imagenIndice;
+    abrirLightbox(proyectos[indiceProyecto].imagenes, Number(indiceImagen));
+  }
+});
+
+btnCerrar.addEventListener("click", cerrarLightbox);
+btnSiguiente.addEventListener("click", mostrarSiguiente);
+btnAnterior.addEventListener("click", mostrarAnterior);
+
+// Cerrar al hacer clic en el fondo oscuro (fuera de la imagen)
+lightbox.addEventListener("click", function (evento) {
+  if (evento.target === lightbox) cerrarLightbox();
+});
+
+// Navegar con teclado: flechas y Escape
+document.addEventListener("keydown", function (evento) {
+  if (lightbox.classList.contains("oculto")) return;
+  if (evento.key === "Escape") cerrarLightbox();
+  if (evento.key === "ArrowRight") mostrarSiguiente();
+  if (evento.key === "ArrowLeft") mostrarAnterior();
 });

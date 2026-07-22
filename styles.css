@@ -227,6 +227,60 @@ a {
   height: 70px;
   object-fit: cover;
   border-radius: 4px;
+  cursor: pointer;
+}
+
+/* === LIGHTBOX (ver fotos en grande) === */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(15, 23, 42, 0.92);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 200;
+}
+
+.lightbox.oculto {
+  display: none;
+}
+
+.lightbox-imagen {
+  max-width: 85vw;
+  max-height: 85vh;
+  border-radius: 8px;
+}
+
+.lightbox-cerrar {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  font-size: 2rem;
+}
+
+.lightbox-flecha {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 3rem;
+  padding: 0.5rem 1rem;
+}
+
+.lightbox-cerrar,
+.lightbox-flecha {
+  background: none;
+  border: none;
+  color: var(--texto);
+  cursor: pointer;
+  line-height: 1;
+}
+
+.lightbox-anterior {
+  left: 1rem;
+}
+
+.lightbox-siguiente {
+  right: 1rem;
 }
 
 .tag-nota {
