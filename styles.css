@@ -92,6 +92,16 @@ section {
   line-height: 1.7;
 }
 
+.avatar {
+  width: clamp(140px, 25vw, 320px); /*clamp(mínimo, preferido, máximo)*/
+  height: clamp(140px, 25vw, 320px);
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--acento);
+  margin-bottom: 1.5rem;
+  display: block;
+}
+
 .hero-title {
   font-weight: 800;
   line-height: 0.95;
@@ -208,6 +218,18 @@ a {
   padding: 0.5rem 1rem;
   border-radius: 6px;
   font-size: 0.9rem;
+}
+
+.skills-categoria {
+  margin-bottom: 1.5rem;
+}
+
+.skills-categoria h3 {
+  font-size: 0.85rem;
+  color: var(--texto-suave);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 0.75rem;
 }
 
 /* === FOOTER === */
