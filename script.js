@@ -8,6 +8,7 @@ const proyectos = [
     tecnologias: ["Kotlin", "Spring Boot", "ML Kit", "PostgreSQL"],
     repo: "",
     demo: "",
+    nota: "En desarrollo",
   },
   {
     titulo: "Gestor Finanzas",
@@ -15,6 +16,7 @@ const proyectos = [
     tecnologias: ["Spring Boot", "React", "PostgreSQL"],
     repo: "",
     demo: "",
+    nota: "En desarrollo",
   },
   {
     titulo: "Sistema de Gestión de Flota",
@@ -22,8 +24,13 @@ const proyectos = [
       "Sistema web + Android para gestión de flota y servicios de chófer. Proyecto de prácticas en el Parc Mòbil (Diputació de Barcelona).",
     tecnologias: ["React", "Node.js", "MySQL", "Kotlin"],
     repo: "",
-    ver capturas: "",
-    nota: "Código no público (proyecto de prácticas en Diputació de Barcelona)"
+    nota: "Código privado (proyecto de prácticas en Diputació de Barcelona)",
+    imagenes: [
+      "img/flota/flota-1.jpeg",
+      "img/flota/flota-2.jpeg",
+      "img/flota/flota-3.jpeg",
+      "img/flota/flota-4.jpeg",
+    ],
   },
 ];
 
@@ -49,15 +56,26 @@ function mostrarProyectos(lista) {
     if (proyecto.demo) {
       enlaces += `<a href="${proyecto.demo}" target="_blank">Demo</a>`;
     }
+    const galeria = proyecto.imagenes
+      ? `<div class="galeria">${proyecto.imagenes
+          .map(
+            (img) => `<img src="${img}" alt="Captura de ${proyecto.titulo}">`,
+          )
+          .join("")}</div>`
+      : "";
 
+    const badge = proyecto.nota
+      ? `<span class="tag tag-nota">${proyecto.nota}</span>`
+      : "";
     // Construimos la tarjeta completa
     const tarjeta = `
       <article class="tarjeta">
-        <h3>${proyecto.titulo}</h3>
-        <p>${proyecto.descripcion}</p>
-        <div class="tags">${tags}</div>
-        <div class="enlaces">${enlaces}</div>
-      </article>
+    <h3>${proyecto.titulo} ${badge}</h3>
+    <p>${proyecto.descripcion}</p>
+    <div class="tags">${tags}</div>
+    ${galeria}
+    <div class="enlaces">${enlaces}</div>
+  </article>
     `;
 
     contenedor.innerHTML += tarjeta;
