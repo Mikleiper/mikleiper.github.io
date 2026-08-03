@@ -215,6 +215,26 @@ a {
   font-weight: 600;
 }
 
+/* === CERTIFICACIONES === */
+.certificacion {
+  background-color: var(--superficie);
+  padding: 1.5rem;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+  border: 1px solid #334155;
+}
+
+.certificacion h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.25rem;
+}
+
+.certificacion-meta {
+  color: var(--acento);
+  font-size: 0.9rem;
+  margin-bottom: 0.75rem;
+}
+
 .galeria {
   display: flex;
   gap: 0.5rem;
