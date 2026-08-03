@@ -80,6 +80,37 @@ nav a.activo {
   color: var(--acento);
 }
 
+/* === SELECTOR DE IDIOMA === */
+.lang-toggle {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.lang-toggle button {
+  background: none;
+  border: none;
+  color: var(--texto-suave);
+  font-family: inherit;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 0;
+  transition: color 0.2s;
+}
+
+.lang-toggle button:hover {
+  color: var(--acento);
+}
+
+.lang-toggle button.lang-activo {
+  color: var(--acento);
+}
+
+.lang-toggle span {
+  color: var(--texto-suave);
+}
+
 nav a.activo::after {
   content: "";
   position: absolute;
@@ -133,8 +164,6 @@ section {
   letter-spacing: -0.02em;
   margin-bottom: 1.5rem;
   font-size: clamp(3.5rem, 7vw, 6rem);
-  opacity: 1;
-  transform: none;
 }
 
 .hero-title span {

@@ -32,15 +32,24 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <a href="#main-content" class="skip-link">Saltar al contenido</a>
+    <a href="#main-content" class="skip-link" data-i18n="skip"
+      >Saltar al contenido</a
+    >
     <!-- CABECERA / NAV -->
     <header>
       <nav>
-        <a href="#inicio">Inicio</a>
-        <a href="#proyectos">Proyectos</a>
-        <a href="#skills">Skills</a>
-        <a href="#certificaciones">Certificaciones</a>
-        <a href="#contacto">Contacto</a>
+        <a href="#inicio" data-i18n="nav_inicio">Inicio</a>
+        <a href="#proyectos" data-i18n="nav_proyectos">Proyectos</a>
+        <a href="#skills" data-i18n="nav_skills">Skills</a>
+        <a href="#certificaciones" data-i18n="nav_certificaciones"
+          >Certificaciones</a
+        >
+        <a href="#contacto" data-i18n="nav_contacto">Contacto</a>
+        <div class="lang-toggle" role="group" aria-label="Idioma / Language">
+          <button type="button" data-lang="es">ES</button>
+          <span aria-hidden="true">|</span>
+          <button type="button" data-lang="en">EN</button>
+        </div>
       </nav>
     </header>
 
@@ -49,7 +58,7 @@
       <section id="inicio">
         <div class="hero-header">
           <img
-            src="img/perfil.jpeg"
+            src="img/perfil.png"
             alt="Foto de Miguel Muñoz"
             class="avatar"
           />
@@ -99,11 +108,11 @@
             </svg>
           </a>
         </div>
-        <p class="subtitulo">
+        <p class="subtitulo" data-i18n="hero_subtitulo">
           Desarrollador Backend (Java/Spring Boot) &amp; Android (Kotlin) ·
           Barcelona
         </p>
-        <p>
+        <p data-i18n="hero_bio">
           Desarrollador de aplicaciones multiplataforma (Java, Spring Boot,
           Kotlin, JavaScript, Express.js). Tras 13 años de carrera en
           psicología, aporto al sector tecnológico una profunda comprensión de
@@ -115,17 +124,17 @@
 
       <!-- PROYECTOS -->
       <section id="proyectos">
-        <h2>Proyectos</h2>
+        <h2 data-i18n="sec_proyectos">Proyectos</h2>
         <!-- Aquí, en la Fase 3, JS insertará las tarjetas automáticamente -->
         <div id="lista-proyectos"></div>
       </section>
 
       <!-- SKILLS -->
       <section id="skills">
-        <h2>Skills</h2>
+        <h2 data-i18n="sec_skills">Skills</h2>
 
         <div class="skills-categoria">
-          <h3>Backend</h3>
+          <h3 data-i18n="skills_backend">Backend</h3>
           <ul>
             <li>Java</li>
             <li>Spring Boot</li>
@@ -137,7 +146,7 @@
         </div>
 
         <div class="skills-categoria">
-          <h3>Frontend</h3>
+          <h3 data-i18n="skills_frontend">Frontend</h3>
           <ul>
             <li>JavaScript</li>
             <li>TypeScript</li>
@@ -146,23 +155,23 @@
         </div>
 
         <div class="skills-categoria">
-          <h3>Mobile</h3>
+          <h3 data-i18n="skills_mobile">Mobile</h3>
           <ul>
             <li>Kotlin / Android</li>
           </ul>
         </div>
 
         <div class="skills-categoria">
-          <h3>Datos &amp; ML</h3>
+          <h3 data-i18n="skills_datos">Datos &amp; ML</h3>
           <ul>
             <li>Scikit-learn</li>
             <li>Pandas</li>
-            <li>Aprendizaje supervisado</li>
+            <li data-i18n="skill_aprendizaje">Aprendizaje supervisado</li>
           </ul>
         </div>
 
         <div class="skills-categoria">
-          <h3>Bases de datos</h3>
+          <h3 data-i18n="skills_bd">Bases de datos</h3>
           <ul>
             <li>MySQL / PostgreSQL</li>
             <li>Oracle SQL</li>
@@ -170,7 +179,7 @@
         </div>
 
         <div class="skills-categoria">
-          <h3>Herramientas</h3>
+          <h3 data-i18n="skills_herramientas">Herramientas</h3>
           <ul>
             <li>Git</li>
             <li>GitHub</li>
@@ -182,12 +191,14 @@
 
       <!-- CERTIFICACIONES -->
       <section id="certificaciones">
-        <h2>Certificaciones</h2>
+        <h2 data-i18n="sec_certificaciones">Certificaciones</h2>
 
         <article class="certificacion">
           <h3>Database Programming with SQL</h3>
-          <p class="certificacion-meta">Oracle · Junio 2025</p>
-          <p>
+          <p class="certificacion-meta" data-i18n="cert1_meta">
+            Oracle · Junio 2025
+          </p>
+          <p data-i18n="cert1_desc">
             Modelado e implementación de bases de datos relacionales con SQL:
             creación de tablas, consultas y generación de informes.
           </p>
@@ -195,8 +206,10 @@
 
         <article class="certificacion">
           <h3>Supervised Learning with scikit-learn</h3>
-          <p class="certificacion-meta">DataCamp · Marzo 2026</p>
-          <p>
+          <p class="certificacion-meta" data-i18n="cert2_meta">
+            DataCamp · Marzo 2026
+          </p>
+          <p data-i18n="cert2_desc">
             Entrenamiento de modelos de aprendizaje supervisado con scikit-learn:
             clasificación, regresión y ajuste de modelos sobre datos reales.
           </p>
@@ -205,7 +218,7 @@
 
       <!-- CONTACTO -->
       <section id="contacto">
-        <h2>Contacto</h2>
+        <h2 data-i18n="sec_contacto">Contacto</h2>
         <p>
           <a href="https://www.linkedin.com/in/miguel-munozb" target="_blank"
             >LinkedIn</a
@@ -222,10 +235,17 @@
 
     <!-- LIGHTBOX: modal para ver las fotos de proyecto en grande -->
     <div id="lightbox" class="lightbox oculto">
-      <button class="lightbox-cerrar" aria-label="Cerrar">&times;</button>
+      <button
+        class="lightbox-cerrar"
+        aria-label="Cerrar"
+        data-i18n-aria="aria_cerrar"
+      >
+        &times;
+      </button>
       <button
         class="lightbox-flecha lightbox-anterior"
         aria-label="Foto anterior"
+        data-i18n-aria="aria_anterior"
       >
         &#8249;
       </button>
@@ -233,6 +253,7 @@
       <button
         class="lightbox-flecha lightbox-siguiente"
         aria-label="Foto siguiente"
+        data-i18n-aria="aria_siguiente"
       >
         &#8250;
       </button>
