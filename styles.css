@@ -151,6 +151,8 @@ section {
   border-radius: 50%;
   object-fit: cover;
   border: 3px solid var(--acento);
+  /* Fondo circular tras la foto transparente: medallón con luz cálida */
+  background: radial-gradient(circle at 50% 38%, #46372a, #29211a 72%);
   display: block;
   flex-shrink: 0;
 }
@@ -275,15 +277,11 @@ a {
   margin-bottom: 0.75rem;
 }
 
-/* === CONTACTO / CV === */
-.contacto-cta {
-  font-size: 1.1rem;
-  max-width: 55ch;
-}
-
+/* === BOTÓN DESCARGAR CV === */
 .cv-boton {
+  align-self: flex-start; /* que no se estire al ancho del contenedor flex */
   display: inline-block;
-  margin-top: 1rem;
+  margin-top: 1.5rem;
   background-color: var(--acento);
   color: var(--fondo);
   font-family: var(--fuente-mono);

@@ -55,7 +55,6 @@ const textos = {
     nav_proyectos: "Proyectos",
     nav_skills: "Skills",
     nav_certificaciones: "Certificaciones",
-    nav_contacto: "Contacto",
     hero_subtitulo:
       "Desarrollador Backend (Java/Spring Boot) & Android (Kotlin) · Barcelona",
     hero_bio:
@@ -76,9 +75,6 @@ const textos = {
     cert2_meta: "DataCamp · Marzo 2026",
     cert2_desc:
       "Entrenamiento de modelos de aprendizaje supervisado con scikit-learn: clasificación, regresión y ajuste de modelos sobre datos reales.",
-    sec_contacto: "Contacto",
-    contacto_cta:
-      "¿Hablamos? Estoy abierto a nuevas oportunidades como desarrollador.",
     cv_descargar: "Descargar CV",
     proj_codigo: "Código",
     proj_demo: "Demo",
@@ -93,7 +89,6 @@ const textos = {
     nav_proyectos: "Projects",
     nav_skills: "Skills",
     nav_certificaciones: "Certifications",
-    nav_contacto: "Contact",
     hero_subtitulo:
       "Backend (Java/Spring Boot) & Android (Kotlin) Developer · Barcelona",
     hero_bio:
@@ -114,8 +109,6 @@ const textos = {
     cert2_meta: "DataCamp · March 2026",
     cert2_desc:
       "Training supervised learning models with scikit-learn: classification, regression and model tuning on real datasets.",
-    sec_contacto: "Contact",
-    contacto_cta: "Let's talk — I'm open to new opportunities as a developer.",
     cv_descargar: "Download CV",
     proj_codigo: "Code",
     proj_demo: "Demo",
