@@ -1,10 +1,18 @@
-/* === VARIABLES DE COLOR === */
+/* === VARIABLES === */
 :root {
-  --fondo: #0f172a;
-  --superficie: #1e293b;
-  --texto: #e2e8f0;
-  --texto-suave: #94a3b8;
-  --acento: #38bdf8;
+  /* Paleta "Ámbar y tinta": marrón cálido + acento ámbar (luz de lámpara) */
+  --fondo: #29211a;
+  --superficie: #342a22;
+  --texto: #ece4d8;
+  --texto-suave: #b3a897;
+  --acento: #d99a4e;
+  --borde: #473a2d;
+  --chip: #3e3228;
+
+  /* Tipografía: serif con carácter (humano) + mono (código) + sans legible */
+  --fuente-display: "Fraunces", Georgia, "Times New Roman", serif;
+  --fuente-cuerpo: "IBM Plex Sans", system-ui, -apple-system, sans-serif;
+  --fuente-mono: "IBM Plex Mono", ui-monospace, "Courier New", monospace;
 }
 
 /* === RESET BÁSICO === */
@@ -16,13 +24,7 @@
 
 /* === BASE === */
 body {
-  font-family:
-    "Montserrat",
-    system-ui,
-    -apple-system,
-    "Segoe UI",
-    Roboto,
-    sans-serif;
+  font-family: var(--fuente-cuerpo);
   background-color: var(--fondo);
   color: var(--texto);
   line-height: 1.6;
@@ -66,6 +68,8 @@ nav a {
   position: relative;
   color: var(--texto-suave);
   text-decoration: none;
+  font-family: var(--fuente-mono);
+  font-size: 0.85rem;
   font-weight: 500;
   padding-bottom: 0.4rem;
   transition: color 0.2s;
@@ -91,8 +95,8 @@ nav a.activo {
   background: none;
   border: none;
   color: var(--texto-suave);
-  font-family: inherit;
-  font-size: 0.9rem;
+  font-family: var(--fuente-mono);
+  font-size: 0.85rem;
   font-weight: 600;
   cursor: pointer;
   padding: 0;
@@ -132,7 +136,7 @@ main {
 
 section {
   padding: 3rem 0;
-  border-bottom: 1px solid #334155;
+  border-bottom: 1px solid var(--borde);
 }
 
 #inicio p {
@@ -159,6 +163,7 @@ section {
 }
 
 .hero-title {
+  font-family: var(--fuente-display);
   font-weight: 800;
   line-height: 0.95;
   letter-spacing: -0.02em;
@@ -175,19 +180,23 @@ section {
 }
 
 h1 {
+  font-family: var(--fuente-display);
   font-size: 2.5rem;
   margin-bottom: 0.5rem;
 }
 
 h2 {
-  font-size: 1.8rem;
+  font-family: var(--fuente-display);
+  font-size: 1.9rem;
   margin-bottom: 1.5rem;
-  color: var(--acento);
+  color: var(--texto);
 }
 
 .subtitulo {
   color: var(--acento);
-  font-size: 1.2rem;
+  font-family: var(--fuente-mono);
+  font-size: 0.95rem;
+  letter-spacing: 0.01em;
   margin-bottom: 1.5rem;
 }
 
@@ -216,7 +225,7 @@ a {
   padding: 1.5rem;
   border-radius: 8px;
   margin-bottom: 1.5rem;
-  border: 1px solid #334155;
+  border: 1px solid var(--borde);
 }
 
 .tarjeta h3 {
@@ -232,11 +241,12 @@ a {
 }
 
 .tag {
-  background-color: #334155;
+  background-color: var(--chip);
   color: var(--acento);
+  font-family: var(--fuente-mono);
   padding: 0.25rem 0.6rem;
   border-radius: 4px;
-  font-size: 0.8rem;
+  font-size: 0.78rem;
 }
 
 .enlaces a {
@@ -250,7 +260,7 @@ a {
   padding: 1.5rem;
   border-radius: 8px;
   margin-bottom: 1.5rem;
-  border: 1px solid #334155;
+  border: 1px solid var(--borde);
 }
 
 .certificacion h3 {
@@ -260,8 +270,36 @@ a {
 
 .certificacion-meta {
   color: var(--acento);
-  font-size: 0.9rem;
+  font-family: var(--fuente-mono);
+  font-size: 0.85rem;
   margin-bottom: 0.75rem;
+}
+
+/* === CONTACTO / CV === */
+.contacto-cta {
+  font-size: 1.1rem;
+  max-width: 55ch;
+}
+
+.cv-boton {
+  display: inline-block;
+  margin-top: 1rem;
+  background-color: var(--acento);
+  color: var(--fondo);
+  font-family: var(--fuente-mono);
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-decoration: none;
+  padding: 0.7rem 1.4rem;
+  border-radius: 6px;
+  transition:
+    transform 0.2s,
+    opacity 0.2s;
+}
+
+.cv-boton:hover {
+  transform: translateY(-2px);
+  opacity: 0.9;
 }
 
 .galeria {
@@ -283,7 +321,7 @@ a {
 .lightbox {
   position: fixed;
   inset: 0;
-  background-color: rgba(15, 23, 42, 0.92);
+  background-color: rgba(23, 19, 15, 0.94);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -333,9 +371,10 @@ a {
 }
 
 .tag-nota {
-  background-color: #7c2d12;
-  color: #fdba74;
-  font-size: 0.75rem;
+  background-color: #4a2f15;
+  color: #e8b880;
+  font-family: var(--fuente-mono);
+  font-size: 0.72rem;
   vertical-align: middle;
 }
 
@@ -359,8 +398,9 @@ a {
 }
 
 .skills-categoria h3 {
-  font-size: 0.85rem;
-  color: var(--texto-suave);
+  font-family: var(--fuente-mono);
+  font-size: 0.8rem;
+  color: var(--acento);
   text-transform: uppercase;
   letter-spacing: 0.08em;
   margin-bottom: 0.75rem;

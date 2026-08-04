@@ -77,6 +77,9 @@ const textos = {
     cert2_desc:
       "Entrenamiento de modelos de aprendizaje supervisado con scikit-learn: clasificación, regresión y ajuste de modelos sobre datos reales.",
     sec_contacto: "Contacto",
+    contacto_cta:
+      "¿Hablamos? Estoy abierto a nuevas oportunidades como desarrollador.",
+    cv_descargar: "Descargar CV",
     proj_codigo: "Código",
     proj_demo: "Demo",
     proj_captura: "Captura de",
@@ -112,6 +115,8 @@ const textos = {
     cert2_desc:
       "Training supervised learning models with scikit-learn: classification, regression and model tuning on real datasets.",
     sec_contacto: "Contact",
+    contacto_cta: "Let's talk — I'm open to new opportunities as a developer.",
+    cv_descargar: "Download CV",
     proj_codigo: "Code",
     proj_demo: "Demo",
     proj_captura: "Screenshot of",
@@ -185,6 +190,13 @@ function mostrarProyectos(lista) {
 // === IDIOMA: aplicar traducciones y recordar la eleccion ===
 const botonesIdioma = document.querySelectorAll(".lang-toggle button");
 
+// El boton de CV descarga el PDF del idioma activo
+const enlaceCV = document.getElementById("cv-link");
+const archivosCV = {
+  es: "cv/CV-Miguel-Munoz-ES.pdf",
+  en: "cv/CV-Miguel-Munoz-EN.pdf",
+};
+
 function cambiarIdioma(idioma) {
   idiomaActual = idioma;
 
@@ -206,6 +218,11 @@ function cambiarIdioma(idioma) {
       elemento.setAttribute("aria-label", traduccion);
     }
   });
+
+  // 1c. Apuntar el boton de CV al PDF del idioma activo
+  if (enlaceCV) {
+    enlaceCV.setAttribute("href", archivosCV[idioma]);
+  }
 
   // 2. Re-pintar los proyectos (se generan con JS, no llevan data-i18n)
   mostrarProyectos(proyectos);
