@@ -30,22 +30,34 @@ body {
   line-height: 1.6;
 }
 
+/* Skip link: oculto (recortado a 1px) hasta recibir foco de teclado.
+   Recortarlo — en vez de empujarlo con top negativo — evita que asome
+   en el rebote elástico al hacer scroll por encima del borde superior. */
 .skip-link {
   position: absolute;
-  top: -40px;
+  top: 0;
   left: 0;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
   background-color: var(--acento);
   color: var(--fondo);
-  padding: 0.75rem 1.5rem;
   font-weight: 600;
   text-decoration: none;
-  border-radius: 0 0 4px 0;
   z-index: 100;
-  transition: top 0.2s;
 }
 
 .skip-link:focus {
-  top: 0;
+  width: auto;
+  height: auto;
+  padding: 0.75rem 1.5rem;
+  clip: auto;
+  clip-path: none;
+  border-radius: 0 0 4px 0;
 }
 
 /* === NAVEGACIÓN === */
